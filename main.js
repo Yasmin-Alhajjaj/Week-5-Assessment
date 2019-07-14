@@ -84,7 +84,7 @@ function repeatChar(str,num) {
 return repeat.slice(0,repeat.length-2);
 }
 console.log(repeatChar("C", 5));
-console.log(repeatChar("a",2))
+console.log(repeatChar("a",7))
 
 /* Q4:
 Using recursion 
@@ -105,9 +105,10 @@ function stringToCapital(st) {
   if (st.length==0)       
   return "" 
 
-    return st.slice(-1).toUpperCase() + stringToCapital(st.slice(0,st.length-1))
 
 
+
+    return st.slice(0,1).toUpperCase() + stringToCapital(st.slice(1))
 }
 console.log(stringToCapital("abcde !:"))
 // Good luck :)
