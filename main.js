@@ -12,11 +12,17 @@ Ex:  hello(null) => null
 
 */
 
-function hello() {
+function hello(name) {
   // WRITE YOUR CODE UNDER THIS LINE  
-
+ 
+if(name==null||name=="")
+return "null";
+return "HELLO "+name+" !";
 }
-
+console.log(hello(""));
+console.log(hello("jouza"));
+console.log(hello("jouza"));
+console.log(hello(null));
 
 /* Q2:
 Create a function called calculateTax
@@ -32,11 +38,13 @@ Ex: calculateTax(100,0.15)
 => "You got 100 JD from sales, you should pay 15 JD for tax and you will have 85 JD as net sales."
 */
 
-function calculateTax() {
+function calculateTax(sal,tax) {
   // WRITE YOUR CODE UNDER THIS LINE 
-
+ return "You got "+sal+" JD from sales, you should pay "+(sal*tax)+" JD for tax and you will have "+(sal-(sal*tax))+" JD as net sales.";
 }
-
+console.log(calculateTax(500,0.16));
+console.log(calculateTax(315,0.10));
+console.log(calculateTax(100,0.15));
 
 /* Q3:
 Using while
@@ -52,11 +60,31 @@ Ex: repeatChar("a",2); => "a, A"
 Ex: repeatChar("C",5); => "C, c, C, c, C"
 */
 
-function repeatChar() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+function repeatChar(str,num) {
+  // WRITE YOUR CODE UNDER THIS LINE 
 
+  var repeat=""     
+ while (num>0) {
+  if(num%2!==0)
+  {
+    
+    str=str.toUpperCase()
+    repeat=repeat+str+ ", ";
+    num=num-1;  
+  } 
+  else
+  {
+    
+    str=str.toLowerCase();
+    repeat=repeat+str+ ", ";
+    num=num-1; 
+  }
+  
+ }
+return repeat.slice(0,repeat.length-2);
 }
-
+console.log(repeatChar("C", 5));
+console.log(repeatChar("a",2))
 
 /* Q4:
 Using recursion 
@@ -72,9 +100,14 @@ Ex: stringToCapital("Are you a student in coding ACADEMY by ORANGE ?")
 => "ARE YOU A STUDENT IN CODING ACADEMY BY ORANGE ?"
 */
 
-function stringToCapital() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+function stringToCapital(st) {
+  
+  if (st.length==0)       
+  return "" 
+
+    return st.slice(-1).toUpperCase() + stringToCapital(st.slice(0,st.length-1))
+
 
 }
-
+console.log(stringToCapital("abcde !:"))
 // Good luck :)
